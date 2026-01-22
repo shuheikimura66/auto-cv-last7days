@@ -142,10 +142,12 @@ def main():
         # --- 3. 「直近7日」ボタンをクリック ---
         print("「直近7日」ボタンを選択します...")
         try:
-            current_month_btn = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".current_month")))
-            driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", current_month_btn)
+            # 修正: class="last_7_date" を指定してクリック
+            last_7_days_btn = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".last_7_date")))
+            
+            driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", last_7_days_btn)
             time.sleep(1)
-            current_month_btn.click()
+            last_7_days_btn.click()
             print("「直近7日」ボタンをクリックしました")
             time.sleep(3) # 日付入力欄への反映待ち
         except Exception as e:
