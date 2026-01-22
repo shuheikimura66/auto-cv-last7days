@@ -84,7 +84,7 @@ def update_google_sheet(csv_path):
         print(f"書き込みエラー: {e}")
 
 def main():
-    print("=== Action Log取得処理開始(今月分) ===")
+    print("=== Action Log取得処理開始(直近7日) ===")
     
     download_dir = os.path.join(os.getcwd(), "downloads_action_month")
     if not os.path.exists(download_dir):
@@ -139,17 +139,17 @@ def main():
             print(f"絞り込み検索ボタンが見つかりません: {e}")
             pass
 
-        # --- 3. 「今月」ボタンをクリック ---
-        print("「今月」ボタンを選択します...")
+        # --- 3. 「直近7日」ボタンをクリック ---
+        print("「直近7日」ボタンを選択します...")
         try:
             current_month_btn = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".current_month")))
             driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", current_month_btn)
             time.sleep(1)
             current_month_btn.click()
-            print("「今月」ボタンをクリックしました")
+            print("「直近7日」ボタンをクリックしました")
             time.sleep(3) # 日付入力欄への反映待ち
         except Exception as e:
-            print(f"「今月」ボタンの操作エラー: {e}")
+            print(f"「直近7日」ボタンの操作エラー: {e}")
 
         # --- 4. パートナー（株式会社フルアウト）を選択 ---
         print(f"パートナー({PARTNER_NAME})を入力します...")
