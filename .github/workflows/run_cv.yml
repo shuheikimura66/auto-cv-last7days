@@ -41,4 +41,4 @@ jobs:
           TARGET_URL: ${{ secrets.TARGET_URL }}
           SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
           PARTNER_NAME: ${{ secrets.PARTNER_NAME }}
-        run: python cv_thismonth_main.py
+        run: python cv_last7days_main.py
