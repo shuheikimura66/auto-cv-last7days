@@ -86,7 +86,7 @@ def update_google_sheet(csv_path):
 def main():
     print("=== Action Log取得処理開始(直近7日) ===")
     
-    download_dir = os.path.join(os.getcwd(), "downloads_action_month")
+    download_dir = os.path.join(os.getcwd(), "downloads_action_last7days")
     if not os.path.exists(download_dir):
         os.makedirs(download_dir)
 
